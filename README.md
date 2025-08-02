@@ -1,0 +1,239 @@
+<div align="center">
+
+# FlowSage
+
+**🚀 专为CTF设计的智能流量分析工具**
+
+[![Version](https://img.shields.io/badge/version-v2.2.0-blue.svg)](https://github.com/Lyscf/FlowSage)
+[![Platform](https://img.shields.io/badge/platform-Windows-blue.svg)](https://github.com/Lyscf/FlowSage)
+[![CTF](https://img.shields.io/badge/CTF-Ready-green.svg)](https://github.com/Lyscf/FlowSage)
+
+*零配置 • 智能分析 • CTF专用*
+
+[功能特性](#功能特性) • [快速开始](#快速开始) • [使用文档](#使用文档) • [更新日志](#更新日志)
+
+</div>
+
+---
+
+## 🎯 项目简介
+
+FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选手快速、准确地从复杂的网络流量中提取关键信息。通过深度协议解析和智能算法，实现**一行命令完成复杂流量分析**。
+
+> 💡 **注意**：本项目目前为闭源项目，欢迎有兴趣的开发者联系合作，CTFer可在Issues中提出功能需求和反馈。
+
+## ✨ 功能特性
+
+### 🔍 核心能力
+
+- **🌐 全协议深度解析**：支持 HTTP、SQL、FTP、SMTP 等 8+ 主流协议
+- **📁 智能文件识别**：自动识别 200+ 文件类型，支持魔幻数字检测
+- **🎌 CTF专属优化**：内置多层 Flag 检测算法，支持 10+ 种 Flag 格式
+- **⚡ 零配置分析**：开箱即用，无需复杂配置
+
+### 🛠️ 专业功能
+
+| 协议类型       | 分析能力                                 | CTF应用场景            |
+| -------------- | ---------------------------------------- | ---------------------- |
+| **HTTP** | 会话重建 + 文件隐写检测 + 协议隧道识别   | Web取证、隐写分析      |
+| **SQL**  | 盲注重建 + 多字段并行提取 + payload识别  | SQL注入分析、数据提取  |
+| **USB**  | 扫描码转换 + 鼠标轨迹可视化 + 修饰键支持 | 键盘流量解析、输入重建 |
+| **WiFi** | 握手包捕获 + 网络拓扑分析 + 弱加密检测   | 无线安全分析           |
+| **FTP**  | 会话重建 + 文件传输分析 + 认证信息提取   | 文件传输取证           |
+| **蓝牙** | 设备识别 + 数据包分析 + 连接日志提取     | 蓝牙设备取证           |
+| **SMTP** | 邮件头解析 + 附件提取 + 垃圾邮件检测     | 邮件取证               |
+| **SMB**  | 文件共享分析 + 认证信息提取 + 会话重建   | 文件传输取证           |
+
+## 🚀 快速开始
+
+### 系统要求
+
+- Windows 10/11
+
+### 安装步骤
+
+1. **下载工具**
+
+   ```bash
+   # 从Release页面下载最新版本
+   # 或联系开发者获取试用版本
+   ```
+2. **准备流量文件**
+
+   - 使用 Wireshark 打开流量文件
+   - 点击 **文件** → **导出分组解析结果**
+   - 选择 **JSON** 格式保存
+3. **运行分析**
+
+   ```bash
+   # 一键启动分析
+   ./FlowSage.exe your_traffic_file.json
+   ```
+
+### 快速示例
+
+```bash
+# 分析HTTP流量
+./FlowSage.exe http_traffic.json
+
+# 分析SQL注入流量  
+./FlowSage.exe sql_injection.json
+
+# 分析USB键盘流量
+./FlowSage.exe usb_keyboard.json
+```
+
+## 📖 使用文档
+
+### HTTP流量分析
+
+```bash
+./FlowSage.exe web_traffic.json
+```
+
+**输出示例：**
+
+```
+🌐 HTTP流量分析完成
+📊 总请求数: 245 | 成功响应: 198 | 错误响应: 47
+🔍 发现可疑文件: 3个
+📁 提取文件: flag.txt, secret.zip, image.png
+🚩 检测到Flag: flag{web_traffic_analysis_2024}
+```
+
+### SQL注入分析
+
+```bash
+./FlowSage.exe sql_injection.json
+```
+
+**输出示例：**
+
+```
+🎯 SQL注入分析摘要
+============================================================
+总HTTP请求数: 392
+SQL注入请求数: 333
+请求-响应对数: 392
+
+--- 注入方法分类 ---
+布尔盲注请求: 248
+时间盲注请求: 248
+联合注入请求: 0
+错误注入请求: 0
+
+🎯 从盲注中提取的数据:
+   字段 'inferred_flag': ek`fz`rc`peb3010cerfce12rce|
+   🔓 解码结果: flag{asdaqfc4121dfsgdf23sdf}
+   🚩 解码后的Flag: flag{asdaqfc4121dfsgdf23sdf}
+
+✅ 成功的盲注测试: 322 个
+⏱️ 平均响应时间: 0.272s
+```
+
+### USB键盘流量解析
+
+```bash
+./FlowSage.exe usb_keyboard.json
+```
+
+**功能特性：**
+
+- ✅ 扫描码到字符的完整转换
+- ✅ 支持 Shift、Ctrl、Alt 组合键
+- ✅ 时间戳序列重建
+- ✅ 鼠标轨迹可视化
+
+## 🏗️ 技术架构
+
+### 核心模块
+
+```
+FlowSage/
+├── 📦 协议解析器/
+│   ├── HTTPAnalyzer    # HTTP协议深度解析
+│   ├── SQLAnalyzer     # SQL注入专项分析  
+│   ├── USBAnalyzer     # USB设备流量解析
+│   ├── WiFiAnalyzer    # 无线网络分析
+│   ├── SMTPAnalyzer    # SMTP邮件协议解析
+│   ├── BluetoothAnalyzer # 蓝牙流量分析
+│   └── FTPAnalyzer     # FTP协议分析
+
+├── 🔍 检测引擎/
+│   ├── FlagDetector    # 多格式Flag检测
+│   ├── FileExtractor   # 智能文件提取
+│   └── PayloadAnalyzer # 攻击载荷识别
+└── 📊 报告生成器/
+    ├── JSONReporter    # 结构化数据输出
+    └── TXTReporter     # 可读性报告
+```
+
+### 算法优势
+
+- **智能会话重建**：基于TCP序列号的精确重建算法
+- **多层Flag检测**：正则表达式 + 熵分析 + 格式验证
+- **自适应编码识别**：支持30+编码格式自动转换
+- **损坏数据修复**：智能文件重组和数据恢复
+
+## 📈 性能指标
+
+| 指标                 | 表现   | 说明                   |
+| -------------------- | ------ | ---------------------- |
+| **Flag检出率** | 95%+   | 基于500+CTF题目测试    |
+| **协议覆盖率** | 8+协议 | HTTP、SQL、USB、WiFi等 |
+
+## 🔄 更新日志
+
+### v2.2.0 (2024-08-02)
+
+- ✨ 优化SQL注入分析算法，提高检测准确率至95%+
+- 🔧 增强USB键盘流量解析，支持更多键盘布局
+- 🐛 修复FTP文件传输分析中的编码问题
+- 📊 新增HTML可视化报告功能
+
+### v2.1.0 (2024-06-15)
+
+- 🏗️ 全面重构项目架构，采用模块化设计
+- 🔍 增强SQL注入分析，支持多种注入技术
+- 🖱️ 优化USB键盘流量解析，支持鼠标轨迹分析
+- 🌐 统一HTTP处理器，整合所有HTTP功能
+
+### v2.0.0 (2024-04-20)
+
+- 🎨 采用全新用户界面，操作更加直观
+- 🎯 增强CTF支持和关键词检测功能
+- 📡 新增蓝牙流量分析功能
+- 📧 新增FTP、SMTP协议支持
+
+## 🤝 贡献指南
+
+虽然本项目暂时闭源，但我们非常欢迎社区贡献：
+
+### 💡 需求反馈
+
+- 在 [Issues](https://github.com/Lyscf/FlowSage/issues) 中提出功能需求
+- 分享 CTF 题目和流量样本
+- 反馈使用体验和建议
+
+### 🤝 合作机会
+
+- CTF题库建设
+- 新功能开发
+- 测试和文档完善
+
+## 📞 联系我们
+
+- **技术支持**: lyscf#proton.me (将#替换为@)
+- **Bug反馈**: [GitHub Issues](https://github.com/Lyscf/FlowSage/issues)
+
+## 📄 许可证
+
+本项目目前为专有软件，未经授权禁止复制、分发和修改。
+
+**⭐ 如果这个项目对你有帮助，请给我们一个Star！**
+
+Made with ❤️ for CTF Community
+
+## 📝 免责声明
+
+本项目仅供学习和研究使用，使用者需遵守相关法律法规，确保合法合规使用。我们不对因使用本项目而导致的任何法律责任或损失承担责任。
