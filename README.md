@@ -4,7 +4,7 @@
 
 **🚀 专为CTF设计的智能流量分析工具**
 
-[![Version](https://img.shields.io/badge/version-v2.7.0-blue.svg)](https://github.com/Lyscf/FlowSage)
+[![Version](https://img.shields.io/badge/version-v2.8.0-blue.svg)](https://github.com/Lyscf/FlowSage)
 [![Platform](https://img.shields.io/badge/platform-Windows-blue.svg)](https://github.com/Lyscf/FlowSage)
 [![CTF](https://img.shields.io/badge/CTF-Ready-green.svg)](https://github.com/Lyscf/FlowSage)
 
@@ -26,6 +26,8 @@ FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选
 > 💡 **注意**：本项目目前存在网络验证，使用公网NTP服务验证当前时间，一个版本可在版本发布后一个月内正常可用。
 
 
+> 💡 **注意**：项目已添加离线授权功能，需要离线运行的师傅可以加QQ群1041810310免费获取离线授权，离线授权有效期同样为每个版本发布后一个月。
+
 ---
 
 ## 项目截图
@@ -33,27 +35,39 @@ FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选
 <div align="center">
 
 ### 🖥️ 程序菜单
+
 <img src="img/1.png" alt="程序菜单" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
+### 🔐 授权管理
+
+<img src="img/9.png" alt="授权管理" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
+
 ### 💉 SQL-时间盲注流量还原
+
 <img src="img/3.png" alt="SQL-时间盲注流量还原" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### 🎯 SQL-布尔盲注流量还原
+
 <img src="img/4.png" alt="SQL-布尔盲注流量还原" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### 🖱️ USB鼠标流量还原
+
 <img src="img/2.png" alt="USB鼠标流量还原" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### ⌨️ USB键盘流量还原
+
 <img src="img/5.png" alt="USB键盘流量还原" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### 🔌 Telnet流量分析-会话重建
+
 <img src="img/6.png" alt="Telnet流量分析-会话重建" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### 🔍 端口扫描分析器
+
 <img src="img/7.png" alt="端口扫描分析器" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### 📧 SMTP流量分析器
+
 <img src="img/8.png" alt="SMTP流量分析器" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 </div>
@@ -63,11 +77,10 @@ FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选
 
 ### 🔍 核心能力
 
-- **🌐 全协议深度解析**：支持 HTTP、SQL、FTP、SMTP、Telnet、SMB、端口扫描、鼠标轨迹、键盘数据 等 12+ 主流协议
+- **🌐 全协议深度解析**：支持 HTTP、SQL、FTP、SMTP、Telnet、SMB、DNS、ARP、Redis、MongoDB、ICMP、端口扫描、鼠标轨迹、键盘数据 等 17+ 主流协议
 - **📁 智能文件识别**：自动识别 200+ 文件类型
 - **🎌 CTF专属优化**：内置多层 Flag 检测算法，支持 15+ 种 Flag 格式
 - **⚡ 零配置分析**：开箱即用，无需复杂配置
-- **🎛️ 交互式菜单**：全新图形化操作界面，操作更便捷
 
 ### 🛠️ 专业功能
 
@@ -85,17 +98,22 @@ FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选
 | **端口扫描** | 扫描模式识别 + 工具特征分析 + 目标识别        | 网络侦察分析           |
 | **鼠标轨迹** | 轨迹可视化 + 点击事件分析 + 操作序列重建      | 用户行为分析           |
 | **键盘数据** | 按键序列还原 + 功能键识别 + 组合键解析        | 输入行为重建           |
+|| **DNS** | 域名解析分析 + mDNS支持 + DoH检测 + 查询记录提取 | 域名解析取证、DNS隧道检测 |
+|| **ARP** | 地址映射分析 + ARP欺骗检测 + 网络拓扑重建     | 网络攻击检测、拓扑分析 |
+|| **Redis** | 命令解析 + 数据操作分析 + 认证信息提取       | NoSQL数据库取证        |
+|| **MongoDB** | 查询解析 + 文档操作分析 + 认证流程重建     | MongoDB数据库取证      |
+|| **ICMP** | 协议分析 + Ping追踪 + 网络诊断数据提取      | 网络诊断、隐蔽通信检测 |
 
-### v2.7.0 新特性
+### v2.8.0 新特性
 
-- **🖱️ 鼠标轨迹解析器**：全新鼠标轨迹可视化和分析功能，支持用户操作行为重建
-- **⌨️ 键盘数据还原**：智能键盘输入重建，支持功能按键和组合键识别，完整还原用户输入
-- **🚀 SMB协议分析器**：新增文件共享和NTLM认证分析，支持Windows网络取证
-- **🔍 端口扫描分析**：智能识别扫描模式和工具特征，支持多种扫描技术检测
-- **⏰ NTP时间验证**：新增网络时间同步验证，确保分析结果的时间准确性
-- **🎯 增强Flag提取**：优化CTF标志检测算法，提升识别准确率和覆盖面
-- **🛠️ 用户体验优化**：改进交互界面，提供更友好的操作体验
-- **🔧 稳定性提升**：修复已知问题，提升系统整体稳定性和可靠性
+- **🌐 DNS协议全面支持**：新增DNS流量分析，支持mDNS和DoH（DNS over HTTPS）检测
+- **📡 ARP流量分析器**：新增地址解析协议分析，支持ARP欺骗检测和网络拓扑重建
+- **💾 Redis协议分析**：新增NoSQL数据库协议支持，完整解析Redis命令和数据操作
+- **🍃 MongoDB协议分析**：新增MongoDB数据库协议分析，支持查询解析和认证流程重建
+- **📶 ICMP协议分析**：新增网络诊断协议支持，检测Ping追踪和隐蔽通信
+- **🖱️ USB鼠标优化**：增强6字节格式鼠标数据处理和Y值动态缩放功能
+- **🔧 数据质量提升**：优化数据分析逻辑，提升报告生成质量和可读性
+- **⚡ 性能优化**：优化代码结构，提升分析速度和系统稳定性
 
 
 ## 🚀 快速开始
@@ -193,9 +211,20 @@ v2.5.0新增的交互式菜单让操作更加直观：
 | 指标                 | 表现   | 说明                   |
 | -------------------- | ------ | ---------------------- |
 | **Flag检出率** | 95%+   | 基于500+CTF题目测试    |
-| **协议覆盖率** | 9+协议 | HTTP、SQL、USB、WiFi、Telnet等 |
+| **协议覆盖率** | 17+协议 | HTTP、SQL、USB、WiFi、Telnet、DNS、ARP、Redis、MongoDB、ICMP等 |
 
 ## 🔄 更新日志
+
+### v2.8.0 (2025-08-23)
+
+- **🌐 DNS协议全面支持**：新增完整DNS流量分析功能，支持标准DNS、mDNS和DoH协议检测
+- **📡 ARP流量分析器**：新增地址解析协议分析，智能检测ARP欺骗攻击和网络拓扑重建
+- **💾 Redis协议分析**：新增NoSQL数据库协议支持，完整解析Redis命令执行和数据操作
+- **🍃 MongoDB协议分析**：新增MongoDB数据库协议分析，支持查询解析和认证流程重建
+- **📶 ICMP协议分析**：新增网络诊断协议支持，检测Ping追踪、网络诊断和隐蔽通信
+- **🖱️ USB鼠标增强**：优化USB提取器，新增6字节格式鼠标数据处理和Y值动态缩放
+- **📊 数据质量提升**：改进数据分析逻辑，优化报告生成质量和整体可读性
+- **🛠️ 代码架构优化**：重构代码结构，提升系统维护性和运行稳定性
 
 ### v2.7.0 (2025-08-19)
 
