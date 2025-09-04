@@ -4,7 +4,7 @@
 
 **🚀 专为CTF设计的智能流量分析工具**
 
-[![Version](https://img.shields.io/badge/version-v2.8.0-blue.svg)](https://github.com/Lyscf/FlowSage)
+[![Version](https://img.shields.io/badge/version-v2.9.0-blue.svg)](https://github.com/Lyscf/FlowSage)
 [![Platform](https://img.shields.io/badge/platform-Windows-blue.svg)](https://github.com/Lyscf/FlowSage)
 [![CTF](https://img.shields.io/badge/CTF-Ready-green.svg)](https://github.com/Lyscf/FlowSage)
 
@@ -35,7 +35,6 @@ FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选
 <div align="center">
 
 ### 🖥️ 程序菜单
-
 <img src="img/1.png" alt="程序菜单" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### 🔐 授权管理
@@ -43,31 +42,24 @@ FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选
 <img src="img/9.png" alt="授权管理" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### 💉 SQL-时间盲注流量还原
-
 <img src="img/3.png" alt="SQL-时间盲注流量还原" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### 🎯 SQL-布尔盲注流量还原
-
 <img src="img/4.png" alt="SQL-布尔盲注流量还原" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### 🖱️ USB鼠标流量还原
-
 <img src="img/2.png" alt="USB鼠标流量还原" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### ⌨️ USB键盘流量还原
-
 <img src="img/5.png" alt="USB键盘流量还原" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### 🔌 Telnet流量分析-会话重建
-
 <img src="img/6.png" alt="Telnet流量分析-会话重建" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### 🔍 端口扫描分析器
-
 <img src="img/7.png" alt="端口扫描分析器" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### 📧 SMTP流量分析器
-
 <img src="img/8.png" alt="SMTP流量分析器" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 </div>
@@ -98,23 +90,19 @@ FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选
 | **端口扫描** | 扫描模式识别 + 工具特征分析 + 目标识别        | 网络侦察分析           |
 | **鼠标轨迹** | 轨迹可视化 + 点击事件分析 + 操作序列重建      | 用户行为分析           |
 | **键盘数据** | 按键序列还原 + 功能键识别 + 组合键解析        | 输入行为重建           |
-|| **DNS** | 域名解析分析 + mDNS支持 + DoH检测 + 查询记录提取 | 域名解析取证、DNS隧道检测 |
-|| **ARP** | 地址映射分析 + ARP欺骗检测 + 网络拓扑重建     | 网络攻击检测、拓扑分析 |
-|| **Redis** | 命令解析 + 数据操作分析 + 认证信息提取       | NoSQL数据库取证        |
-|| **MongoDB** | 查询解析 + 文档操作分析 + 认证流程重建     | MongoDB数据库取证      |
-|| **ICMP** | 协议分析 + Ping追踪 + 网络诊断数据提取      | 网络诊断、隐蔽通信检测 |
+| **DNS** | 域名解析分析 + mDNS支持 + DoH检测 + 查询记录提取 | 域名解析取证、DNS隧道检测 |
+| **ARP** | 地址映射分析 + ARP欺骗检测 + 网络拓扑重建     | 网络攻击检测、拓扑分析 |
+| **Redis** | 命令解析 + 数据操作分析 + 认证信息提取       | NoSQL数据库取证        |
+| **MongoDB** | 查询解析 + 文档操作分析 + 认证流程重建     | MongoDB数据库取证      |
+| **ICMP** | 协议分析 + Ping追踪 + 网络诊断数据提取      | 网络诊断、隐蔽通信检测 |
 
-### v2.8.0 新特性
+### v2.9.0 新特性
 
-- **🌐 DNS协议全面支持**：新增DNS流量分析，支持mDNS和DoH（DNS over HTTPS）检测
-- **📡 ARP流量分析器**：新增地址解析协议分析，支持ARP欺骗检测和网络拓扑重建
-- **💾 Redis协议分析**：新增NoSQL数据库协议支持，完整解析Redis命令和数据操作
-- **🍃 MongoDB协议分析**：新增MongoDB数据库协议分析，支持查询解析和认证流程重建
-- **📶 ICMP协议分析**：新增网络诊断协议支持，检测Ping追踪和隐蔽通信
-- **🖱️ USB鼠标优化**：增强6字节格式鼠标数据处理和Y值动态缩放功能
-- **🔧 数据质量提升**：优化数据分析逻辑，提升报告生成质量和可读性
-- **⚡ 性能优化**：优化代码结构，提升分析速度和系统稳定性
-
+- **🐛 PyInstaller打包修复**：彻底解决因PyInstaller打包导致的导出文件丢失问题
+- **🚩 智能Flag解析器**：新增多格式Flag识别、正则表达式引擎和上下文关联分析
+- **⚡ 性能大幅提升**：解析器工作逻辑优化
+- **🔧 机器码生成优化**：重构机器码生成算法
+- **🏗️ 架构重构**：模块化重构和插件系统增强，提升系统稳定性和可维护性
 
 ## 🚀 快速开始
 
@@ -214,6 +202,17 @@ v2.5.0新增的交互式菜单让操作更加直观：
 | **协议覆盖率** | 17+协议 | HTTP、SQL、USB、WiFi、Telnet、DNS、ARP、Redis、MongoDB、ICMP等 |
 
 ## 🔄 更新日志
+
+### v2.9.0 (2025-09-04)
+
+- **🌐 DNS协议全面支持**：新增完整DNS流量分析功能，支持标准DNS、mDNS和DoH协议检测
+- **📡 ARP流量分析器**：新增地址解析协议分析，智能检测ARP欺骗攻击和网络拓扑重建
+- **💾 Redis协议分析**：新增NoSQL数据库协议支持，完整解析Redis命令执行和数据操作
+- **🍃 MongoDB协议分析**：新增MongoDB数据库协议分析，支持查询解析和认证流程重建
+- **📶 ICMP协议分析**：新增网络诊断协议支持，检测Ping追踪、网络诊断和隐蔽通信
+- **🖱️ USB鼠标增强**：优化USB提取器，新增6字节格式鼠标数据处理和Y值动态缩放
+- **📊 数据质量提升**：改进数据分析逻辑，优化报告生成质量和整体可读性
+- **🛠️ 代码架构优化**：重构代码结构，提升系统维护性和运行稳定性
 
 ### v2.8.0 (2025-08-23)
 
