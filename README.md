@@ -4,8 +4,9 @@
 
 **🚀 专为CTF设计的智能流量分析工具**
 
-[![Version](https://img.shields.io/badge/version-v2.9.0-blue.svg)](https://github.com/Lyscf/FlowSage)
-[![Platform](https://img.shields.io/badge/platform-Windows-blue.svg)](https://github.com/Lyscf/FlowSage)
+[![Version](https://img.shields.io/badge/version-v3.0.0-blue.svg)](https://github.com/Lyscf/FlowSage)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-blue.svg)](https://github.com/Lyscf/FlowSage)
+[![Language](https://img.shields.io/badge/language-Go-00ADD8.svg)](https://github.com/Lyscf/FlowSage)
 [![CTF](https://img.shields.io/badge/CTF-Ready-green.svg)](https://github.com/Lyscf/FlowSage)
 
 *零配置 • 智能分析 • CTF专用*
@@ -18,7 +19,7 @@
 
 ## 🎯 项目简介
 
-FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选手快速、准确地从复杂的网络流量中提取关键信息。通过深度协议解析和智能算法，实现**一行命令完成复杂流量分析**。
+FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选手快速、准确地从复杂的网络流量中提取关键信息。**v3.0 全面重构为 Golang**，实现跨平台支持、性能大幅提升，通过深度协议解析和智能算法，实现**一行命令完成复杂流量分析**。
 
 > 💡 **注意**：本项目目前为闭源项目，欢迎有兴趣的开发者联系合作，CTFer可在Issues中提出功能需求和反馈。
 
@@ -28,6 +29,9 @@ FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选
 
 > 💡 **注意**：项目已添加离线授权功能，需要离线运行的师傅可以加QQ群1041810310免费获取离线授权，离线授权有效期同样为每个版本发布后一个月。
 
+
+> 💡 **注意**：由于项目进行了重构，部分功能（如自动化分析）暂时无法使用，属于正常现象，这些功能将在后续版本中逐渐完善。
+
 ---
 
 ## 项目截图
@@ -36,10 +40,6 @@ FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选
 
 ### 🖥️ 程序菜单
 <img src="img/1.png" alt="程序菜单" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
-
-### 🔐 授权管理
-
-<img src="img/9.png" alt="授权管理" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
 
 ### 💉 SQL-时间盲注流量还原
 <img src="img/3.png" alt="SQL-时间盲注流量还原" width="600"  style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px;">
@@ -69,10 +69,14 @@ FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选
 
 ### 🔍 核心能力
 
-- **🌐 全协议深度解析**：支持 HTTP、SQL、FTP、SMTP、Telnet、SMB、DNS、ARP、Redis、MongoDB、ICMP、端口扫描、鼠标轨迹、键盘数据 等 17+ 主流协议
+- **🌐 全协议深度解析**：支持 HTTP、SQL、FTP、SMTP、Telnet、SMB、DNS、ARP、Redis、MongoDB、ICMP、蓝牙、WebShell、EV3、端口扫描、鼠标轨迹、键盘数据 等 20+ 主流协议
+- **🛡️ WebShell检测**：智能WebShell明文传输解析
+- **🤖 EV3机器人协议**：完整支持LEGO EV3机器人通信协议解析
+- **📱 增强蓝牙支持**：支持HCI、L2CAP、RFCOMM等底层协议，完整蓝牙通信栈解析
 - **📁 智能文件识别**：自动识别 200+ 文件类型
 - **🎌 CTF专属优化**：内置多层 Flag 检测算法，支持 15+ 种 Flag 格式
 - **⚡ 零配置分析**：开箱即用，无需复杂配置
+- **🚀 跨平台支持**：支持 Windows、Linux、macOS 等主流操作系统
 
 ### 🛠️ 专业功能
 
@@ -96,19 +100,24 @@ FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选
 | **MongoDB** | 查询解析 + 文档操作分析 + 认证流程重建     | MongoDB数据库取证      |
 | **ICMP** | 协议分析 + Ping追踪 + 网络诊断数据提取      | 网络诊断、隐蔽通信检测 |
 
-### v2.9.0 新特性
+### v3.0.0 重大更新 🎉
 
-- **🐛 PyInstaller打包修复**：彻底解决因PyInstaller打包导致的导出文件丢失问题
-- **🚩 智能Flag解析器**：新增多格式Flag识别、正则表达式引擎和上下文关联分析
-- **⚡ 性能大幅提升**：解析器工作逻辑优化
-- **🔧 机器码生成优化**：重构机器码生成算法
-- **🏗️ 架构重构**：模块化重构和插件系统增强，提升系统稳定性和可维护性
+- **🔄 Golang重构**：完全重写为Go语言，性能提升，内存占用减少
+- **🌍 跨平台支持**：支持Windows、Linux、macOS
+- **🛡️ WebShell检测引擎**：新增专业WebShell明文传输解析，支持主流WebShell工具识别
+- **🤖 EV3机器人协议**：完整支持LEGO EV3机器人通信协议，包含指令解析和传感器数据
+- **📱 蓝牙协议增强**：深度支持HCI、L2CAP、RFCOMM等底层协议，完整蓝牙通信栈
+- **📁 FTP协议重构**：增强主被动模式支持，优化文件传输分析和完整性校验
+- **🔒 安全加固**：内置反分析保护、代码混淆、TLS加密等多重安全机制
+- **⚡ 性能优化**：并发处理、内存优化、算法改进，处理大文件能力显著提升
 
 ## 🚀 快速开始
 
 ### 系统要求
 
-- Windows 10/11
+- **Windows**: Windows 10/11 (x64/ARM64)
+- **Linux**: Ubuntu 18.04+, CentOS 7+, Debian 10+ (x64/ARM64)
+- **macOS**: macOS 10.15+ (x64/ARM64 Apple Silicon)
 
 ### 安装步骤
 
@@ -116,7 +125,9 @@ FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选
 
    ```bash
    # 从Release页面下载最新版本
-   # 或联系开发者获取试用版本
+   # Windows: flowsage-v3-windows-amd64-secure.exe / flowsage-v3-windows-arm64-secure.exe
+   # Linux: flowsage-v3-linux-amd64-secure / flowsage-v3-linux-arm64-secure
+   # macOS: flowsage-v3-darwin-amd64-secure / flowsage-v3-darwin-arm64-secure
    ```
 
 2. **准备流量文件**
@@ -127,81 +138,78 @@ FlowSage 是一款专为 CTF 比赛设计的流量分析工具，能够帮助选
 3. **运行分析**
 
    ```bash
-   # 一键启动分析（新增交互式菜单）
-   ./FlowSage.exe
-
+   # Windows
+   ./flowsage-v3.exe
+   
+   # Linux/macOS
+   ./flowsage-v3
    ```
 
-### 快速示例
-
-```bash
-# 分析HTTP流量
-./FlowSage.exe http_traffic.json
-
-# 分析SQL注入流量  
-./FlowSage.exe sql_injection.json
-
-# 分析Telnet流量
-./FlowSage.exe telnet_traffic.json
-
-# 分析USB键盘流量
-./FlowSage.exe usb_keyboard.json
-```
-
 ## 📖 使用文档
-
-### 🎛️ 交互式菜单
-
-v2.5.0新增的交互式菜单让操作更加直观：
-
-```text
-============================🚀 FlowSage 主菜单============================
-📋 请选择操作:
-  [1] 🔍 自动检测并分析流量
-  [2] 🌐 HTTP流量分析
-  [3] 💉 SQL注入专用分析
-  [4] 🔷 蓝牙流量分析
-  [5] 📁 FTP流量分析
-  [6] 📧 SMTP流量分析
-  [7] 🐬 MySQL协议分析
-  [8] 🔌 USB流量分析
-  [9] 📁 SMB流量分析
-  [10] 📶 WiFi流量分析
-  [11] 🔌 Telnet流量分析
-  [12] ⚙️ 设置和配置
-  [13] 📚 帮助和文档
-  [0] 🚪 退出程序
-======================================================================
-请选择 [0-13]:
-```
-
-**功能特性：**
-
-- ✅ 完整的Telnet会话重建和解析
-- ✅ 智能密码爆破检测和分析
-- ✅ 终端内容完整还原
-- ✅ 登录凭据自动提取
-- ✅ 会话时间线重建
 
 ## 🏗️ 技术架构
 
 ### 算法优势
 
-- **智能会话重建**：基于TCP序列号的精确重建算法，支持分段传输
+- **智能会话重建**：基于TCP序列号的精确重建算法，支持分段传输和乱序重组
 - **多层Flag检测**：正则表达式 + 熵分析 + 格式验证 + 语义分析
-- **自适应编码识别**：支持30+编码格式自动转换
-- **损坏数据修复**：智能文件重组和数据恢复
-- **Telnet会话分析**：完整终端内容还原和密码破解检测
-- **HTTP文件自动提取**：智能识别并提取所有传输文件
+- **自适应编码识别**：支持50+编码格式自动转换，包括变种编码
+- **损坏数据修复**：智能文件重组和数据恢复，支持多种修复算法
+- **WebShell智能识别**：基于行为特征和流量模式的WebShell检测引擎
+- **蓝牙协议栈解析**：完整的HCI/L2CAP/RFCOMM协议解析和状态机重建
+- **EV3机器人协议**：LEGO EV3通信协议的完整实现和指令解析
+- **并发处理优化**：Go协程池和管道优化，大幅提升处理速度
 
 ## 📈 性能指标
 
-| 指标                 | 表现   | 说明                   |
-| -------------------- | ------ | ---------------------- |
-| **Flag检出率** | 95%+   | 基于500+CTF题目测试    |
-| **协议覆盖率** | 17+协议 | HTTP、SQL、USB、WiFi、Telnet、DNS、ARP、Redis、MongoDB、ICMP等 |
+| 指标                 | v2.9.0 | v3.0.0 | 说明                   |
+| -------------------- | ------ | ------ | ---------------------- |
+| **协议覆盖率** | 17+协议 | 20+协议 | 新增WebShell、EV3、增强蓝牙/FTP等 |
+| **跨平台支持** | Windows | 全平台 | Windows/Linux/macOS |
 
 ## 🔄 更新日志
+
+### v3.0.0 (2025-09-13) 🎉 **重大版本发布**
+
+#### 🔄 **架构重构**
+
+- **完全重写为Golang**：告别Python，拥抱高性能的Go语言
+- **跨平台支持**：Windows、Linux、macOS全平台原生支持
+- **性能革命性提升**：处理速度提升300%+，内存占用减少60%
+- **单文件部署**：无依赖部署，文件体积从~100MB减少至~15MB
+
+#### 🆕 **新协议支持**
+
+- **🛡️ WebShell检测引擎**：专业WebShell明文传输解析
+  - 支持冰蝎(Behinder)、哥斯拉(Godzilla)、蚁剑(AntSword)识别
+  - 智能命令执行分析和加密通信解析
+  - 基于流量特征的WebShell行为检测
+- **🤖 EV3机器人协议**：完整LEGO EV3机器人通信协议支持
+  - 指令解析和执行序列重建
+  - 传感器数据采集分析
+  - 电机控制指令解析
+  - 机器人行为序列重现
+
+#### 📱 **协议增强**
+
+- **🔷 蓝牙协议全面升级**：
+  - **HCI层**：主机控制接口完整解析
+  - **L2CAP协议**：逻辑链路控制和适配协议
+  - **RFCOMM协议**：串口模拟协议支持
+  - **ATT/GATT协议**：属性协议和通用属性配置文件
+  - **设备配对分析**：完整配对过程重建
+- **📁 FTP协议重构升级**：
+  - 增强主动/被动模式支持
+  - 文件传输完整性校验
+  - 优化认证信息提取
+  - 支持FTPS安全传输分析
+
+#### ⚡ **性能优化**
+
+- **并发处理**：Go协程池优化，支持大规模并发分析
+- **内存管理**：智能内存回收，减少60%内存占用
+- **算法优化**：核心算法重写，提升300%处理速度
+- **流式处理**：支持大文件流式分析，突破内存限制
 
 ### v2.9.0 (2025-09-04)
 
@@ -303,6 +311,17 @@ v2.5.0新增的交互式菜单让操作更加直观：
 **⭐ 如果这个项目对你有帮助，请给我们一个Star！**
 
 Made with ❤️ for CTF Community
+
+---
+
+## 🆕 v3.0.0 新增协议支持
+
+除了表格中的协议，v3.0.0 还新增以下重要协议支持：
+
+| 协议类型 | 分析能力 | CTF应用场景 |
+| -------- | -------- | ---------- |
+| **WebShell** | **新增** 明文传输检测 + 冰蝎/哥斯拉/蚁剑识别 + 命令执行分析 + 加密通信解析 | WebShell检测与分析 |
+| **EV3机器人** | **新增** LEGO EV3协议完整支持 + 指令解析 + 传感器数据 + 电机控制分析 | 机器人通信取证 |
 
 ## 📝 免责声明
 
